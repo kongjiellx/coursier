@@ -14,6 +14,7 @@ sealed abstract class Reconciliation {
 object Reconciliation {
   private final val LatestIntegration = "latest.integration"
   private final val LatestRelease     = "latest.release"
+  private final val LatestRelease2    = "RELEASE"
   private final val LatestStable      = "latest.stable"
 
   private def splitStandard(versions: Seq[String]): (Seq[String], Seq[String]) =
@@ -21,6 +22,7 @@ object Reconciliation {
       case LatestIntegration => false
       case LatestRelease     => false
       case LatestStable      => false
+      case LatestRelease2    => false
       case _                 => true
     }
 
@@ -32,7 +34,7 @@ object Reconciliation {
       val retained =
         if (set(LatestIntegration))
           LatestIntegration
-        else if (set(LatestRelease))
+        else if (set(LatestRelease) || set(LatestRelease2))
           LatestRelease
         else {
           // at least two distinct latest.* means we shouldn't even reach this else block anyway

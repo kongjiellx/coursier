@@ -555,6 +555,6 @@ object AppDescriptor {
     repositories.foldLeft(Set.empty[String])((acc, r) => acc ++ forRepo(r))
   }
 
-  private val latestVersions = Set("latest.release", "latest.integration", "latest.stable")
+  private val latestVersions = Set("latest.release", "RELEASE", "latest.integration", "latest.stable")
 
 }

@@ -12,6 +12,7 @@ object Latest {
       case "latest.integration" => Some(Latest.Integration)
       case "latest.release"     => Some(Latest.Release)
       case "latest.stable"      => Some(Latest.Stable)
+      case "RELEASE"            => Some(Latest.Release)
       case _                    => None
     }
 }
